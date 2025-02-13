@@ -23,12 +23,12 @@ income = input("income: ")
 
 def ei():
     if 0 <= income <= 65700:
-        ei=(1.64)*income
-
+        return (1.64)*income
+    return 0
 def cpp():
     if 0 <= income <= 67800:
         cpp=0.0595*income
-    
+    return None
 
 def ptax():
         print('BC Tax brackets')
@@ -44,11 +44,23 @@ def ptax():
             tax = income*(0.147) + tax
         if 186306.01 <= income < 259829:
             tax = income*(0.168)
-        if income > 259829:
+        if income > 259829.01:
             tax= income in range(259829.01,1000000000000000000000000000000000000000000000000000000)*(.205) + tax
         print (tax)
+        return None
 
-
+def Ftax():
+    if 0 <= income <= 57375:
+        tax = income*(0.15)
+    if 57375.01 <= 114750:
+        tax= income*(0.205) + tax
+    if 114750.01 <= income <= 177882:
+        tax= income*(0.26) + tax
+    if 177882.01 <= income <= 253414:
+        tax= income*(0.29) + tax
+    if income > 253414.01:
+        tax = income*(0.33) + tax
+    return None
 def main():
     """
     main block of code that will run your program and control program flow
