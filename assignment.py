@@ -1,27 +1,52 @@
 #!python3
 # Volume Calculator
 # Feel free to rename your variables
-
+#total net income
+#calculate ei
+#calculate cpp
+#calculate federal tax
 
 def title():
-    print("calculate your income taxes ._.")
+    print("Hello")
+    print ("This is a tax calculator for residents in British Columbia")
     return None
 
 def instructions():
-    print("You will have to tell me what province your in")
-    print("Then, we will have you input your income")
-    print("After that, I will figure what tax bracket your in with my program")      
-    print("Then I will calculate your tax")
-    
+    print("First you have to enter your income")    
+    print("I will then calculate your provincial and federal taxes")
+    # output parameters: None
+    # Author:
+    # Modified:
     return None
 
-def location():
+income = input("income: ")
+
+def ei():
+    if 0 <= income <= 65700:
+        ei=(1.64)*income
+
+def cpp():
+    if 0 <= income <= 67800:
+        cpp=0.0595*income
     
 
-def taxes:
-bc:[47937,95875,110076,133664,181232,252752,
-alberta:[]
-ontario:[]
+def ptax():
+        print('BC Tax brackets')
+        if 0 <= income <= 49279:
+            tax = income*(0.0506)
+        if 49279.01 <= income < 98560:
+            tax = income*(0.077) + tax
+        if 98560.01 <= income < 113158:
+            tax = income*(0.105) + tax
+        if 113158.01 <= income < 137407:
+            tax = income*(0.1229) + tax
+        if 137407.01 <= 186306:
+            tax = income*(0.147) + tax
+        if 186306.01 <= income < 259829:
+            tax = income*(0.168)
+        if income > 259829:
+            tax= income in range(259829.01,1000000000000000000000000000000000000000000000000000000)*(.205) + tax
+        print (tax)
 
 
 def main():
@@ -31,10 +56,10 @@ def main():
     the user chooses to exit
     """
     title()
-    instructions()
     while True:
         # keep giving options to choose menu options until they choose to exit
         pass
 
 if __name__ == "__main__":
-    main()
+    title()
+    instructions()
