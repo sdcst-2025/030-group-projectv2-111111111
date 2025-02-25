@@ -50,17 +50,18 @@ def ptax():
         return None
 
 def Ftax():
+    tax = 0
     if 0 <= income <= 57375:
-        tax = income*(0.15)
-    if 57375.01 <= 114750:
-        tax= income*(0.205) + tax
-    if 114750.01 <= income <= 177882:
-        tax= income*(0.26) + tax
-    if 177882.01 <= income <= 253414:
-        tax= income*(0.29) + tax
-    if income > 253414.01:
-        tax = income*(0.33) + tax
-    return None
+        tax = income * 0.15
+    elif income <= 114750:
+        tax = (57375 * 0.15) + (income - 57375) * 0.205
+    elif income <= 177882:
+        tax = (57375 * 0.15) + (57375 * 0.205) + (income - 114750) * 0.26
+    elif income <= 253414:
+        tax = (57375 * 0.15) + (57375 * 0.205) + (63132 * 0.26) + (income - 177882) * 0.29
+    else:
+        tax = (57375 * 0.15) + (57375 * 0.205) + (63132 * 0.26) + (75532 * 0.29) + (income - 253414) * 0.33
+    return tax
 def main():
     """
     main block of code that will run your program and control program flow
@@ -68,8 +69,10 @@ def main():
     the user chooses to exit
     """
     title()
+    instructions()
     while True:
         # keep giving options to choose menu options until they choose to exit
+        talktome = input("Enter your income or awnser exit to exit")
         pass
 
 if __name__ == "__main__":
