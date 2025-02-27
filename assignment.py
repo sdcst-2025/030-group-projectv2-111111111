@@ -18,8 +18,20 @@ def instructions():
     # Author:
     # Modified:
     return None
+def get_income():
+while True:
+        income = input("Enter your income or type 'exit' to quit: ")
+        if income == "exit" or income == "EXIT"
+            return None
+        try:
+            income = float(income_str)
+            if income < 0:
+                print("Enter a positive number")
+            else:
+                return income
+        except ValueError:
+            print("Invalid Number")
 
-income = input("income: ")
 
 def ei():
     if 0 <= income <= 65700:
