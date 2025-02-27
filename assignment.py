@@ -19,8 +19,6 @@ def instructions():
     # Modified:
     return None
 
-income = input("income: ")
-
 def ei():
     if 0 <= income <= 65700:
         return (1.64)*income
@@ -49,6 +47,12 @@ def ptax():
         print (tax)
         return None
 
+def income():
+    input("enter income")
+    return income
+
+
+
 def Ftax():
     tax = 0
     if 0 <= income <= 57375:
@@ -70,11 +74,19 @@ def main():
     """
     title()
     instructions()
-    while True:
-        # keep giving options to choose menu options until they choose to exit
-        talktome = input("Enter your income or awnser exit to exit")
-        pass
+    if True:
+        income = input("Enter your income or awnser exit to exit: ")
+        if income == "exit":
+            print("You have exited the program")
+            return income
+        
+        try:
+            ptax()
+            print(ptax)
+        except:
+            print("Error has accured")
+
+        
 
 if __name__ == "__main__":
-    title()
-    instructions()
+    main()
