@@ -7,21 +7,31 @@
 #calculate federal tax
 
 def title():
-    print("Hello")
-    print ("This is a tax calculator for residents in British Columbia")
-    return None
+    return "Hello This is a tax calculator for residents in British Columbia"
 
 def instructions():
-    print("First you have to enter your income")    
-    print("I will then calculate your provincial and federal taxes")
     # output parameters: None
     # Author:
     # Modified:
-    return None
+    return "First you have to enter your income I will then calculate your provincial and federal taxes"
+def income():
+    while cont == True:
+        income = input("Enter your income or type 'exit' to quit: ")
+        if income == "exit" or income == "EXIT":
+            cont = False
+        try:
+            income = float(income)
+            if income < 0:
+                print("Enter a positive number")
+            else:
+                return income
+        except ValueError:
+            print("Invalid Number")
+
 
 def ei():
-    if 0 <= income <= 65700:
-        return (1.64)*income
+    if income in range(65700):
+        return (0.016)*income
     return 0
 def cpp():
     if 0 <= income <= 67800:
@@ -47,25 +57,20 @@ def ptax():
         print (tax)
         return ptax
 
-def income():
-    input("enter income")
-    return income
 
-
-
-def Ftax():
-    tax = 0
+def ftax():
+    ftax = 0
     if 0 <= income <= 57375:
-        tax = income * 0.15
+        ftax = income * 0.15
     elif income <= 114750:
-        tax = (57375 * 0.15) + (income - 57375) * 0.205
+        ftax = (57375 * 0.15) + (income - 57375) * 0.205
     elif income <= 177882:
-        tax = (57375 * 0.15) + (57375 * 0.205) + (income - 114750) * 0.26
+        ftax = (57375 * 0.15) + (57375 * 0.205) + (income - 114750) * 0.26
     elif income <= 253414:
-        tax = (57375 * 0.15) + (57375 * 0.205) + (63132 * 0.26) + (income - 177882) * 0.29
+        ftax = (57375 * 0.15) + (57375 * 0.205) + (63132 * 0.26) + (income - 177882) * 0.29
     else:
-        tax = (57375 * 0.15) + (57375 * 0.205) + (63132 * 0.26) + (75532 * 0.29) + (income - 253414) * 0.33
-    return Ftax
+        ftax = (57375 * 0.15) + (57375 * 0.205) + (63132 * 0.26) + (75532 * 0.29) + (income - 253414) * 0.33
+    return ftax
 def main():
     """
     main block of code that will run your program and control program flow
@@ -75,7 +80,7 @@ def main():
     title()
     instructions()
     if True:
-        income = input("Enter your income or awnser exit to exit: ")
+        income = income()
         if income == "exit":
             print("You have exited the program")
             return income
@@ -90,3 +95,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+'''
+print(title())
+print(instructions())
+'''
