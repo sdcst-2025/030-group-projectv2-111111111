@@ -32,20 +32,20 @@ def ptax():
         print('BC Tax brackets')
         if 0 <= income <= 49279:
             tax = income*(0.0506)
-        if 49279.01 <= income < 98560:
-            tax = income*(0.077) + tax
-        if 98560.01 <= income < 113158:
-            tax = income*(0.105) + tax
-        if 113158.01 <= income < 137407:
-            tax = income*(0.1229) + tax
-        if 137407.01 <= 186306:
-            tax = income*(0.147) + tax
-        if 186306.01 <= income < 259829:
-            tax = income*(0.168)
-        if income > 259829.01:
-            tax= income in range(259829.01,1000000000000000000000000000000000000000000000000000000)*(.205) + tax
+        elif 49279.01 <= income:
+            tax= (49279 * 0.0506) + (income - 49279) * 0.077
+        elif 98560.01 <= income:
+            tax=(49279 * 0.0506) + (49281 * 0.077) + (income - 98560) * 0.105
+        elif 113158.01 <= income:
+            tax = (49279 * 0.0506) + (49281 * 0.077) + (16190 * 0.26) + (income - 113158 )*0.1229
+        elif 137407.01 <= income:
+            tax = (49279 * 0.0506) + (49281 * 0.077) + (16190 * 0.26) + (24249 * 0.1229 ) + (income- 134707)* 0.147
+        elif 186306.01 <= income < 259829:
+            tax = (49279 * 0.0506) + (49281 * 0.077) + (16190 * 0.26) + (24249 * 0.1229 ) + (48896 * 0.147) + (income - 186303)
+        else:
+            tax = (49279 * 0.0506) + (49281 * 0.077) + (16190 * 0.26) + (24249 * 0.1229 ) + (48896 * 0.147) + (73526 * 0.168) + (income - 259829)*0.205
         print (tax)
-        return None
+        return ptax
 
 def income():
     input("enter income")
@@ -65,7 +65,7 @@ def Ftax():
         tax = (57375 * 0.15) + (57375 * 0.205) + (63132 * 0.26) + (income - 177882) * 0.29
     else:
         tax = (57375 * 0.15) + (57375 * 0.205) + (63132 * 0.26) + (75532 * 0.29) + (income - 253414) * 0.33
-    return tax
+    return Ftax
 def main():
     """
     main block of code that will run your program and control program flow
