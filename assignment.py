@@ -90,7 +90,7 @@ def main():
         print(f"EI: ${eis:.2f}")
         print(f"CPP: ${cpps:.2f}")
         print(f"Total Tax: ${total:.2f}")
-        print("-" * 40)
+
 
 if __name__ == "__main__":
     main()''
