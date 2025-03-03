@@ -74,7 +74,7 @@ def main():
     while True:
         incomes = income()
         if income is None:
-            print("You have exited the program.")
+            print("You have exited the program")
             break
         
         ptaxs = ptax(incomes)
@@ -90,7 +90,7 @@ def main():
         print(f"EI: ${eis:.2f}")
         print(f"CPP: ${cpps:.2f}")
         print(f"Total Tax: ${total:.2f}")
-
+        break
 
 if __name__ == "__main__":
-    main()''
+    main()
